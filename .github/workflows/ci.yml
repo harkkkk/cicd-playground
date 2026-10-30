@@ -1,0 +1,19 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Забрать код
+        uses: actions/checkout@v4
+
+      - name: Показать содержимое
+        run: ls -la
+
+      - name: Сказать привет
+        run: echo "Пайплайн работает, коммит ${{ github.sha }}"
